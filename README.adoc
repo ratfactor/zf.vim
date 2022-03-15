@@ -1,0 +1,84 @@
+= zf.vim
+
+A Vim plugin for the zf fuzzy finder: https://github.com/natecraddock/zf
+
+== Features / Usage
+
+There is currently one high-level function, `ZfSelectFile()`, which uses
+external `find` to let you fuzzy find from a list of all files in the current
+working directory (and any subdirectories).
+
+Example mapping to put in your `.vimrc`:
+
+----
+nnoremap <leader>ff :call ZfSelectFile()<CR>
+----
+
+Another high-level function for selecting from current Vim buffers is coming soon. :-)
+
+There are two lower-level functions to invoke `zf` with either piped output
+from an external command or verbatim lines from a Vim list of strings.
+
+Pipe example:
+
+----
+:call ZfWithPipe('cat bowie-albums.txt')
+> ma
+The Man Who Sold the World
+The Rise and Fall of Ziggy Stardust and the Spiders from Mars
+Young Americans
+Scary Monsters (and Super Creeps)
+----
+
+String list example:
+
+----
+:call ZfWithLines(['foo', 'bar', 'baz'])
+>
+foo
+bar
+baz
+----
+
+After calling either of these, your selection will be in `g:zf_selection[0]`
+(this is a list as future-proofing in case there's support for multiple-selection
+at some point.)
+
+== Install
+
+zf.vim is in the standard Vim plugin structure. Any plugin installation method
+(incuding popular plugin managers) should work. If you have additional
+installation instructions to add here, I'll gladly add them:
+
+Vundle example (because that's what the author uses).
+
+----
+Plugin 'ratfactor/zf.vim'
+----
+
+(Then run `:source %` and `:BundleInstall` to complete the Vundle installation.)
+
+
+== Configuration
+
+Here's the current configuration settings and their defaults. Override any of
+these in your `.vimrc` as desired.
+
+----
+let g:zf_exec       = 'zf'
+let g:zf_lines      = 20
+let g:zf_list_files = 'find . -type f'
+----
+
+TODO: Help doesn't exist yet! But when it does, see `:help zf.vim` for complete
+documentation and specifically `:help zf.vim-configuration` for all settings.
+
+
+== Thanks!
+
+Thanks to https://nathancraddock.com/ for making zf.
+
+Thanks to https://github.com/junegunn for the Vim plugin(s) for FZF, which were
+_very_ direct inspiration for this plugin, especially terminal redirection and
+the use of temporary files (and listing buffers, when I add that).
+
