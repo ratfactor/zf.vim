@@ -3,7 +3,7 @@
 "     MIT License
 
 if exists('g:loaded_zf_vim')
-"    finish TODO uncomment!
+    finish
 endif
 let g:loaded_zf_vim = 1
 

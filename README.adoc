@@ -1,12 +1,12 @@
 = zf.vim
 
-A Vim plugin for the zf fuzzy finder: https://github.com/natecraddock/zf
+A Vim plugin for the `zf` fuzzy finder: https://github.com/natecraddock/zf
 
 == Features / Usage
 
-There is currently one high-level function, `ZfSelectFile()`, which uses
-external `find` to let you fuzzy find from a list of all files in the current
-working directory (and any subdirectories).
+There is currently one high-level function, `ZfSelectFile()`, which uses the
+external `find` command to let you fuzzy find from a list of all files in the
+current working directory (and any subdirectories).
 
 Example mapping to put in your `.vimrc`:
 
@@ -14,10 +14,12 @@ Example mapping to put in your `.vimrc`:
 nnoremap <leader>ff :call ZfSelectFile()<CR>
 ----
 
-Another high-level function for selecting from current Vim buffers is coming soon. :-)
+(Coming Soon: Another high-level function for selecting from current Vim buffers.)
 
-There are two lower-level functions to invoke `zf` with either piped output
-from an external command or verbatim lines from a Vim list of strings.
+There are two lower-level functions to invoke `zf` with your choice of:
+
+* Piped output from an external command
+* A Vim list of strings
 
 Pipe example:
 
@@ -40,15 +42,19 @@ bar
 baz
 ----
 
-After calling either of these, your selection will be in `g:zf_selection[0]`
-(this is a list as future-proofing in case there's support for multiple-selection
-at some point.)
+After calling either of these methods, your selection will be in `g:zf_selection[0]`.
+
+If nothing was selected, the list will be empty.
+
+Note that this is a list so we're future-proof for any possible multiple-selection
+support at some point.
+
 
 == Install
 
-zf.vim is in the standard Vim plugin structure. Any plugin installation method
+This repo is in the standard Vim plugin structure. Any plugin installation method
 (incuding popular plugin managers) should work. If you have additional
-installation instructions to add here, I'll gladly add them:
+installation instructions to add here, PRs are always welcome!
 
 Vundle example (because that's what the author uses).
 
@@ -73,12 +79,20 @@ let g:zf_list_files = 'find . -type f'
 TODO: Help doesn't exist yet! But when it does, see `:help zf.vim` for complete
 documentation and specifically `:help zf.vim-configuration` for all settings.
 
+== Contributing
+
+Yes, please! This has only been tested with Vim running in a terminal under Linux.
+
+Please note that I'd like to keep support for older versions of Vim. This has been
+tested with Vim 7.4.
+
 
 == Thanks!
 
-Thanks to https://nathancraddock.com/ for making zf.
+Thanks to https://nathancraddock.com/[Nathan Craddock] for making zf.
 
-Thanks to https://github.com/junegunn for the Vim plugin(s) for FZF, which were
-_very_ direct inspiration for this plugin, especially terminal redirection and
-the use of temporary files (and listing buffers, when I add that).
+Thanks to https://github.com/junegunn[Junegunn Choi] for the Vim plugin(s) for
+FZF, which were _very_ direct inspiration for this plugin, especially terminal
+redirection and the use of temporary files (and listing buffers, when I add
+that).
 
