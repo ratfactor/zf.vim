@@ -2,6 +2,9 @@
 
 A Vim plugin for the `zf` fuzzy finder: https://github.com/natecraddock/zf
 
+Note: This currently doesn't work with NeoVim. I'd be delighted if an nvim
+user could help discover why (or add nvim term support)!
+
 == Features / Usage
 
 There is currently one high-level function, `ZfSelectFile()`, which uses the
