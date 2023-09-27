@@ -1,5 +1,9 @@
 = zf.vim
 
+
+**MOVED!** Hello, I am moving my repos to http://ratfactor.com/repos/
+and setting them to read-only ("archived") on GitHub. Thank you, _-Dave_
+
 A Vim plugin for the `zf` fuzzy finder: https://github.com/natecraddock/zf
 
 Note: This currently doesn't work with NeoVim. I'd be delighted if an nvim
